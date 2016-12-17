@@ -1,0 +1,89 @@
+From 09b910761336e93f18172fd7ff6f63d4b68306d9 Mon Sep 17 00:00:00 2001
+From: luzhihao <lance5158387@gmail.com>
+Date: Sat, 17 Dec 2016 16:42:40 +0800
+Subject: [PATCH] set_input_array_by_name
+
+---
+ python/caffe/_caffe.cpp | 34 ++++++++++++++++++++++++++++++++++
+ python/caffe/pycaffe.py |  6 ++++++
+ 2 files changed, 40 insertions(+)
+
+diff --git a/python/caffe/_caffe.cpp b/python/caffe/_caffe.cpp
+index bdee75a..d4a7892 100644
+--- a/python/caffe/_caffe.cpp
++++ b/python/caffe/_caffe.cpp
+@@ -179,6 +179,38 @@ void Net_SetInputArrays(Net<Dtype>* net, bp::object data_obj,
+       PyArray_DIMS(data_arr)[0]);
+ }
+ 
++void Net_SetInputArraysFromName(Net<Dtype>* net, string name, bp::object data_obj,
++    bp::object labels_obj) {
++  // check that this network has an input MemoryDataLayer
++  shared_ptr<MemoryDataLayer<Dtype> > md_layer =
++    boost::dynamic_pointer_cast<MemoryDataLayer<Dtype> >(net->layer_by_name(name));
++  if (!md_layer) {
++    throw std::runtime_error("set_input_arrays may only be called if the"
++        " first layer is a MemoryDataLayer");
++  }
++
++  // check that we were passed appropriately-sized contiguous memory
++  PyArrayObject* data_arr =
++      reinterpret_cast<PyArrayObject*>(data_obj.ptr());
++  PyArrayObject* labels_arr =
++      reinterpret_cast<PyArrayObject*>(labels_obj.ptr());
++  CheckContiguousArray(data_arr, "data array", md_layer->channels(),
++      md_layer->height(), md_layer->width());
++  CheckContiguousArray(labels_arr, "labels array", 1, 1, 1);
++  if (PyArray_DIMS(data_arr)[0] != PyArray_DIMS(labels_arr)[0]) {
++    throw std::runtime_error("data and labels must have the same first"
++        " dimension");
++  }
++  if (PyArray_DIMS(data_arr)[0] % md_layer->batch_size() != 0) {
++    throw std::runtime_error("first dimensions of input arrays must be a"
++        " multiple of batch size");
++  }
++
++  md_layer->Reset(static_cast<Dtype*>(PyArray_DATA(data_arr)),
++      static_cast<Dtype*>(PyArray_DATA(labels_arr)),
++      PyArray_DIMS(data_arr)[0]);
++}
++
+ Solver<Dtype>* GetSolverFromFile(const string& filename) {
+   SolverParameter param;
+   ReadSolverParamsFromTextFileOrDie(filename, &param);
+@@ -328,6 +360,8 @@ BOOST_PYTHON_MODULE(_caffe) {
+         bp::return_value_policy<bp::copy_const_reference>()))
+     .def("_set_input_arrays", &Net_SetInputArrays,
+         bp::with_custodian_and_ward<1, 2, bp::with_custodian_and_ward<1, 3> >())
++    .def("_set_input_arrays_from_name", &Net_SetInputArraysFromName,
++        bp::with_custodian_and_ward<1, 2, bp::with_custodian_and_ward<1, 3> >())
+     .def("save", &Net_Save)
+     .def("save_hdf5", &Net_SaveHDF5)
+     .def("load_hdf5", &Net_LoadHDF5);
+diff --git a/python/caffe/pycaffe.py b/python/caffe/pycaffe.py
+index 5bae18d..1cff723 100644
+--- a/python/caffe/pycaffe.py
++++ b/python/caffe/pycaffe.py
+@@ -258,6 +258,11 @@ def _Net_set_input_arrays(self, data, labels):
+                                              np.newaxis])
+     return self._set_input_arrays(data, labels)
+ 
++def _Net_set_input_arrays_from_name(self, name, data, labels):
++    if labels.ndim == 1:
++        labels = np.ascontiguousarray(labels[:, np.newaxis, np.newaxis,
++                                                 np.newaxis])
++    return self._set_input_arrays_from_name(name, data, labels)
+ 
+ def _Net_batch(self, blobs):
+     """
+@@ -327,6 +332,7 @@ Net.backward = _Net_backward
+ Net.forward_all = _Net_forward_all
+ Net.forward_backward_all = _Net_forward_backward_all
+ Net.set_input_arrays = _Net_set_input_arrays
++Net.set_input_arrays_from_name = _Net_set_input_arrays_from_name
+ Net._batch = _Net_batch
+ Net.inputs = _Net_inputs
+ Net.outputs = _Net_outputs
+-- 
+1.9.1
+
