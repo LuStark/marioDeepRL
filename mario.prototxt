@@ -1,0 +1,108 @@
+layer {
+  name: "frames"
+  type: "MemoryData"
+  top: "frames"
+  top: "dummy1"
+  memory_data_param {
+    batch_size: 1
+    channels: 1
+    height: 1
+    width: 6
+  }
+}
+layer {
+  name: "MemoryData1"
+  type: "MemoryData"
+  top: "MemoryData1"
+  top: "dummy2"
+  memory_data_param {
+    batch_size: 1
+    channels: 5
+    height: 1
+    width: 1
+  }
+}
+layer {
+  name: "target"
+  type: "Reshape"
+  bottom: "MemoryData1"
+  top: "target"
+  reshape_param {
+    shape {
+      dim: 0
+      dim: -1
+    }
+  }
+}
+layer {
+  name: "MemoryData2"
+  type: "MemoryData"
+  top: "MemoryData2"
+  top: "dummy3"
+  memory_data_param {
+    batch_size: 1
+    channels: 5
+    height: 1
+    width: 1
+  }
+}
+layer {
+  name: "filter"
+  type: "Reshape"
+  bottom: "MemoryData2"
+  top: "filter"
+  reshape_param {
+    shape {
+      dim: 0
+      dim: -1
+    }
+  }
+}
+layer {
+  name: "silence_layer"
+  type: "Silence"
+  bottom: "dummy1"
+  bottom: "dummy2"
+  bottom: "dummy3"
+}
+layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "frames"
+  top: "ip1"
+  inner_product_param {
+    num_output: 12
+    weight_filler {
+      type: "gaussian"
+    }
+  }
+}
+layer {
+  name: "q_values"
+  type: "InnerProduct"
+  bottom: "ip1"
+  top: "q_values"
+  inner_product_param {
+    num_output: 5
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "filtered_q_values"
+  type: "Eltwise"
+  bottom: "filter"
+  bottom: "q_values"
+  top: "filtered_q_values"
+  eltwise_param {
+    operation: PROD
+  }
+}
+layer {
+  name: "loss"
+  type: "EuclideanLoss"
+  bottom: "filtered_q_values"
+  bottom: "target"
+  top: "loss"
+}

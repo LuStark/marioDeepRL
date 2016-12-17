@@ -1,0 +1,11 @@
+block_Coin
+block_Mushroom
+pipe
+Goomba
+block_Mushroom1Up
+Mushroom1Up
+Mushroom
+Koopa
+Star
+stone
+FireFlower

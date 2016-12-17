@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22ac7c61-9f2a-480b-bb5c-4ee8af1fd8a8}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>Gruntfile.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <EnableTypeScript>true</EnableTypeScript>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ToolsVersionPromptShown>1.8</ToolsVersionPromptShown>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="LICENSE.txt" />
+    <Content Include="package.json" />
+    <Content Include="tslint.json" />
+    <Content Include="Contributors.md" />
+    <Content Include="Getting Started.md" />
+    <Content Include="README.md" />
+    <Compile Include="Gruntfile.js" />
+    <Content Include="Source\index.html" />
+    <Content Include="Source\index.css" />
+    <TypeScriptCompile Include="Source\FullScreenMario.d.ts" />
+    <TypeScriptCompile Include="Source\FullScreenMario.ts" />
+    <Compile Include="helper.js" />
+    <Compile Include="Q-Learning.js" />
+    <Compile Include="require.js" />
+    <Compile Include="RLBase.js" />
+    <Compile Include="Source\FullScreenMario.js" />
+    <Compile Include="Source\index.js" />
+    <Content Include="Tests\tests.html" />
+    <Compile Include="Tests\tests.js" />
+    <Content Include="Source\Fonts\pressstart2p-webfont.svg" />
+    <TypeScriptCompile Include="Source\References\AreaSpawnr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\AudioPlayr-0.2.1.ts" />
+    <TypeScriptCompile Include="Source\References\ChangeLinr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\DeviceLayr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\EightBittr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\FPSAnalyzr-0.2.1.ts" />
+    <TypeScriptCompile Include="Source\References\GamesRunnr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\GameStartr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\GroupHoldr-0.2.1.ts" />
+    <TypeScriptCompile Include="Source\References\InputWritr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\ItemsHoldr-0.2.1.ts" />
+    <TypeScriptCompile Include="Source\References\js_beautify.ts" />
+    <TypeScriptCompile Include="Source\References\LevelEditr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\MapsCreatr-0.2.1.ts" />
+    <TypeScriptCompile Include="Source\References\MapScreenr-0.2.1.ts" />
+    <TypeScriptCompile Include="Source\References\MathDecidr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\ModAttachr-0.2.2.ts" />
+    <TypeScriptCompile Include="Source\References\NumberMakr-0.2.2.ts" />
+    <TypeScriptCompile Include="Source\References\ObjectMakr-0.2.2.ts" />
+    <TypeScriptCompile Include="Source\References\PixelDrawr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\PixelRendr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\QuadsKeepr-0.2.1.ts" />
+    <TypeScriptCompile Include="Source\References\ScenePlayr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\StringFilr-0.2.1.ts" />
+    <TypeScriptCompile Include="Source\References\ThingHittr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\TimeHandlr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\TouchPassr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\UsageHelpr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\UserWrappr-0.2.0.ts" />
+    <TypeScriptCompile Include="Source\References\WorldSeedr-0.2.0.ts" />
+    <Compile Include="Source\References\AreaSpawnr-0.2.0.js" />
+    <Compile Include="Source\References\AudioPlayr-0.2.1.js" />
+    <Compile Include="Source\References\ChangeLinr-0.2.0.js" />
+    <Compile Include="Source\References\DeviceLayr-0.2.0.js" />
+    <Compile Include="Source\References\EightBittr-0.2.0.js" />
+    <Compile Include="Source\References\FPSAnalyzr-0.2.1.js" />
+    <Compile Include="Source\References\GamesRunnr-0.2.0.js" />
+    <Compile Include="Source\References\GameStartr-0.2.0.js" />
+    <Compile Include="Source\References\GroupHoldr-0.2.1.js" />
+    <Compile Include="Source\References\InputWritr-0.2.0.js" />
+    <Compile Include="Source\References\ItemsHoldr-0.2.1.js" />
+    <Compile Include="Source\References\js_beautify.js" />
+    <Compile Include="Source\References\LevelEditr-0.2.0.js" />
+    <Compile Include="Source\References\MapsCreatr-0.2.1.js" />
+    <Compile Include="Source\References\MapScreenr-0.2.1.js" />
+    <Compile Include="Source\References\MathDecidr-0.2.0.js" />
+    <Compile Include="Source\References\ModAttachr-0.2.2.js" />
+    <Compile Include="Source\References\NumberMakr-0.2.2.js" />
+    <Compile Include="Source\References\ObjectMakr-0.2.2.js" />
+    <Compile Include="Source\References\PixelDrawr-0.2.0.js" />
+    <Compile Include="Source\References\PixelRendr-0.2.0.js" />
+    <Compile Include="Source\References\QuadsKeepr-0.2.1.js" />
+    <Compile Include="Source\References\ScenePlayr-0.2.0.js" />
+    <Compile Include="Source\References\StringFilr-0.2.1.js" />
+    <Compile Include="Source\References\ThingHittr-0.2.0.js" />
+    <Compile Include="Source\References\TimeHandlr-0.2.0.js" />
+    <Compile Include="Source\References\TouchPassr-0.2.0.js" />
+    <Compile Include="Source\References\UsageHelpr-0.2.0.js" />
+    <Compile Include="Source\References\UserWrappr-0.2.0.js" />
+    <Compile Include="Source\References\WorldSeedr-0.2.0.js" />
+    <TypeScriptCompile Include="Source\settings\collisions.ts" />
+    <TypeScriptCompile Include="Source\settings\help.ts" />
+    <TypeScriptCompile Include="Source\settings\math.ts" />
+    <TypeScriptCompile Include="Source\settings\ui.ts" />
+    <Compile Include="Source\settings\audio.js" />
+    <Compile Include="Source\settings\collisions.js" />
+    <Compile Include="Source\settings\devices.js" />
+    <Compile Include="Source\settings\editor.js" />
+    <Compile Include="Source\settings\events.js" />
+    <Compile Include="Source\settings\generator.js" />
+    <Compile Include="Source\settings\groups.js" />
+    <Compile Include="Source\settings\help.js" />
+    <Compile Include="Source\settings\input.js" />
+    <Compile Include="Source\settings\items.js" />
+    <Compile Include="Source\settings\maps.js" />
+    <Compile Include="Source\settings\math.js" />
+    <Compile Include="Source\settings\mods.js" />
+    <Compile Include="Source\settings\objects.js" />
+    <Compile Include="Source\settings\quadrants.js" />
+    <Compile Include="Source\settings\renderer.js" />
+    <Compile Include="Source\settings\runner.js" />
+    <Compile Include="Source\settings\scenes.js" />
+    <Compile Include="Source\settings\sprites.js" />
+    <Compile Include="Source\settings\statistics.js" />
+    <Compile Include="Source\settings\touch.js" />
+    <Compile Include="Source\settings\ui.js" />
+    <Content Include="Source\Theme\Aleph One.png" />
+    <Content Include="Source\Theme\Facebook.png" />
+    <Content Include="Source\Theme\Github.png" />
+    <Content Include="Source\Theme\Twitter.png" />
+    <Content Include="Source\Theme\Header.gif" />
+    <Content Include="Source\Theme\Mario.gif" />
+    <Compile Include="Source\settings\maps\1-1.js" />
+    <Compile Include="Source\settings\maps\1-2.js" />
+    <Compile Include="Source\settings\maps\1-3.js" />
+    <Compile Include="Source\settings\maps\1-4.js" />
+    <Compile Include="Source\settings\maps\2-1.js" />
+    <Compile Include="Source\settings\maps\2-2.js" />
+    <Compile Include="Source\settings\maps\2-3.js" />
+    <Compile Include="Source\settings\maps\2-4.js" />
+    <Compile Include="Source\settings\maps\3-1.js" />
+    <Compile Include="Source\settings\maps\3-2.js" />
+    <Compile Include="Source\settings\maps\3-3.js" />
+    <Compile Include="Source\settings\maps\3-4.js" />
+    <Compile Include="Source\settings\maps\4-1.js" />
+    <Compile Include="Source\settings\maps\4-2.js" />
+    <Compile Include="Source\settings\maps\4-3.js" />
+    <Compile Include="Source\settings\maps\4-4.js" />
+    <Compile Include="Source\settings\maps\5-1.js" />
+    <Compile Include="Source\settings\maps\5-2.js" />
+    <Compile Include="Source\settings\maps\5-3.js" />
+    <Compile Include="Source\settings\maps\5-4.js" />
+    <Compile Include="Source\settings\maps\6-1.js" />
+    <Compile Include="Source\settings\maps\6-2.js" />
+    <Compile Include="Source\settings\maps\6-3.js" />
+    <Compile Include="Source\settings\maps\6-4.js" />
+    <Compile Include="Source\settings\maps\7-1.js" />
+    <Compile Include="Source\settings\maps\7-2.js" />
+    <Compile Include="Source\settings\maps\7-3.js" />
+    <Compile Include="Source\settings\maps\7-4.js" />
+    <Compile Include="Source\settings\maps\8-1.js" />
+    <Compile Include="Source\settings\maps\8-2.js" />
+    <Compile Include="Source\settings\maps\8-3.js" />
+    <Compile Include="Source\settings\maps\8-4.js" />
+    <Compile Include="Source\settings\maps\Random.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source" />
+    <Folder Include="Source\Fonts" />
+    <Folder Include="Source\References" />
+    <Folder Include="Source\settings" />
+    <Folder Include="Source\settings\maps" />
+    <Folder Include="Source\Sounds" />
+    <Folder Include="Source\Sounds\Sounds" />
+    <Folder Include="Source\Sounds\Sounds\mp3" />
+    <Folder Include="Source\Sounds\Sounds\ogg" />
+    <Folder Include="Source\Sounds\Themes" />
+    <Folder Include="Source\Sounds\Themes\mp3" />
+    <Folder Include="Source\Sounds\Themes\ogg" />
+    <Folder Include="Source\Theme" />
+    <Folder Include="Tests" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

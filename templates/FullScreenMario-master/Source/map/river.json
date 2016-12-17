@@ -1,0 +1,35 @@
+{
+    "name": "New Map",
+    "time": "Infinity",
+    "locations": [{
+        "entry": "Plain"
+    }],
+    "areas": [{
+        "setting": "Overworld",
+        "creation": [{
+            "macro": "Floor",
+            "x": 0,
+            "y": 0,
+            "width": 128
+        }, {
+            "thing": "Floor",
+            "x": 152,
+            "y": 0,
+            "width": 80,
+            "height": "Infinity"
+        }, {
+            "thing": "Floor",
+            "x": 240,
+            "y": 0,
+            "width": 80,
+            "height": "Infinity"
+        }, {
+            "thing": "Floor",
+            "x": 352,
+            "y": 0,
+            "width": 80,
+            "height": "Infinity"
+        }],
+        "editor": true
+    }]
+}
